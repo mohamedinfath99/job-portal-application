@@ -1,4 +1,9 @@
 import express from "express";
+import dotenv from 'dotenv';
+
+
+// dotenv config
+dotenv.config();
 
 // rest object
 const app= express()
@@ -9,8 +14,10 @@ app.get('/', (req, res) => {
     res.send(`<h1>Welcome to job portal</h1>`)
 })
 
+// port 
+const PORT = process.env.PORT || 8080;
 
 // listen
-app.listen(8080, () => {
-    console.log("Node server is running");
+app.listen(PORT, () => {
+    console.log(`Node Server is Running ${PORT} in ${process.env.DEV_MODE} Mode`);
 })
